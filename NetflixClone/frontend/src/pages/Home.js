@@ -78,7 +78,7 @@ function Home(){
                                
                             </div>
                             {errors.password && <p id = "errorPrompt">{errors.password}</p>}
-                            <button type = "submit"> Sign In</button> 
+                            <button type = "submit"> Sign Up</button> 
                         </form>
                         <div class="Remember">
                                 <div style={{display:'inline'}}>

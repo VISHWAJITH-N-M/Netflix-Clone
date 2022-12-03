@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="logo192.png" />  
+    <link rel="manifest" href="manifest.json" />
+    <title>React App</title>
+    <style>
+      @font-face {
+           font-family: 'Netflixsans';
+           src: url(./assests/fonts/Netflixsans/NetflixSansLight.ttf) format("truetype");
+           font-weight: 300;
+           font-style: normal;
+       }
+       @font-face {
+           font-family: 'Netflixsans';
+           src: url(./assests/fonts/Netflixsans/NetflixSansMedium.ttf) format("truetype");
+           font-weight: 500;
+           font-style: normal;
+       }
+       @font-face {
+           font-family: 'Netflixsans';
+           src: url(./assests/fonts/Netflixsans/NetflixSansBold.ttf) format("truetype");
+           font-weight: 600;
+           font-style: normal;
+       }
+       @font-face {
+           font-family: 'Netflixsans';
+           src: url(./assests/fonts/Netflixsans/NetflixSansRegular.ttf) format("truetype");
+           font-weight: 400;
+           font-style: normal;
+       }
+      
+       *{
+           padding: 0;
+           margin : 0;
+           font-family : 'Netflixsans', 'Poppins';
+           border : 0;
+       }
+       .Header{
+           height: 90px;
+           width: 100%;
+           line-height: 90px;
+           background: linear-gradient(180deg,rgba(0,0,0,.5) 0,transparent);
+       }
+       .Header img{
+           display: inline;
+           vertical-align: middle;
+           height : 45px;
+           margin-left : 3%;
+       }
+       .LoginBackground
+       {
+           position: absolute;
+           top:0;
+           z-index: -1;
+           min-height: 100vh;
+           height: 100%;
+           width: 100%;
+           overflow: hidden;
+           background-color: #000;
+       }
+       .LoginBackground img{
+           min-width: 100%;
+           min-height: 100%;
+           opacity: 0.5
+       }
+       .LoginContainer
+       {
+           max-width: 450px;
+           min-height: 515px;
+           background-color: rgba(0,0,0,.75);
+           padding : 60px 68px 40px 68px;
+           position: absolute;
+           top : 91px;
+           left : 50%;
+           transform: translate(-50%,0);
+           border-radius: 4px;  
+       }
+      
+       .LoginLayout{
+           max-width: 314px;
+       }
+       .LoginLayout h1{
+           font-size : 32px;
+           font-weight: 500;
+           margin-bottom: 28px;
+       }
+       .LoginInputBox
+       {
+           position: relative;
+           width: 100%;
+           height : 50px;
+           background-color: rgb(51, 51, 51);
+           border-radius : 5px;
+           margin-top: 16px;
+       }
+       .LoginInputBox label
+       {
+           position: relative;
+           left: 20px;
+           top: 25%;
+           font-weight : 400;
+           font-family: 'Segoe UI';
+           color: #8c8c8c;
+           font-size : 16px;
+           transition: .1s;
+       }
+       .inputBox{
+           position:absolute;
+           height: calc(100% - 16px);
+           width: calc(100% - 40px);
+           top:0;
+           padding:16px 20px 0;
+           background: none;
+           color: white;
+           font-size: 16px;
+           font-weight: 400;
+       }
+       .inputBox:focus
+       {
+           background: none;
+           outline: 0;
+           /* border-bottom: solid 2px #e87c03;
+           border-radius : 5px; */
+           
+       }
+       #errorPrompt{
+           display: inline-block;
+           color: #e87c03;
+           font-size: 13px;
+           margin: 5px 0 0 2px;
+       }
+       .LoginLayout button{
+           margin : 24px 0 12px 0;
+           width: 100%;
+           padding: 16px;
+           background-color: #E50914;
+           color : white;
+           border-radius: 5px;
+           font-size: 16px;
+           font-weight: 500;
+           cursor:pointer;
+       }
+       .Remember {
+           display: flex;
+           width: 100%;
+           justify-content: space-between;
+           color: #b3b3b3;
+           font-size: 13px;
+           font-weight: 300;
+       }
+       .Remember label
+       {
+           color: #b3b3b3;
+       }
+       .Remember a{
+           text-decoration: none;
+           color: #b3b3b3;
+       }
+       .Remember a:hover{
+           text-decoration: underline;
+       }
+       .LoginFooter p{
+           font-size: 16px;
+           display: inline;
+           color:#8c8c8c;
+       }
+       .LoginFooter div{
+           margin-top: 16px;
+           margin-bottom: 11px;
+       }
+       .LoginFooter p:nth-child(2) 
+       {
+           font-size: 13px;
+       }
+       #hidden{
+           display: none;
+           font-size: 13px;
+       }
+   </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    
+  </body>
+</html>

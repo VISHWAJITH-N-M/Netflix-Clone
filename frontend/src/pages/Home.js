@@ -1,8 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import Validation from './Validation'
+function Home(){
 
-class Home extends React.Component{
-    render()
-    {
+
+    const submitlogin = () => {
+        fetch('http://localhost:8989/login', {
+            method: 'post',
+            body: JSON.stringify({
+              username: values.name,
+              password: values.password,
+             
+            }),
+            headers: {
+              'Content-type': 'application/JSON',
+            },
+          })
+            .then((res) => res.json())
+            .then((datas) => {
+              if (datas['$oid']) {
+                alert('done')
+              } else {
+                alert('error')
+              }
+              
+            })
+
+    }
+    
+    const [values, setValues] = useState(
+            {
+                name: '',
+                password: ''
+            }
+        );
+
+        const [errors, setError] = useState({})
+
+        function handleChange(e)
+        {
+            setValues({...values, [e.target.name]: e.target.value})
+        }
+        function handleSubmit(e)
+        {
+            e.preventDefault();
+            setError(Validation(values));
+            if(!error.name && !errors.password)
+            {
+                submitlogin();
+            }
+            else
+            {
+
+            }
+        }
         return(
             <div>
                 <div class="LoginBackground">
@@ -15,31 +65,31 @@ class Home extends React.Component{
                 </div>
                 <div class ="LoginContainer">
                     <div class="LoginLayout">
-                        <form>
+                        <form onSubmit = {handleSubmit}>
                             <h1 style = {{color:'#fff'}}> Sign In</h1>
                             <div class = "LoginInputBox">
-                                <input class = "inputBox" id="username" type = "text" value=""/>
-                                <label for = "username" id="label1">Email or phone number</label>
+                                <input class = "inputBox" id="username" placeholder="Email or phone number" type = "text" value={values.name} name="name" onChange={handleChange}/>
+                                
                             </div>
-                            <p id = "errorPrompt">Please enter a valid email address or phone number.</p>
+                            {errors.name && <p id = "errorPrompt">{errors.name}</p>}
                 
                             <div class = "LoginInputBox"> 
-                                <input class = "inputBox" id="password" type = "password" value=""/>  
-                                <label for = "password" id="label2">Password</label>
+                                <input class = "inputBox" id="password" placeholder = "Password" type = "password" value={values.password} name="password" onChange={handleChange}/>  
+                               
                             </div>
-                            <p id = "errorPrompt">Your password must contain between 4 and 60 characters.</p>
+                            {errors.password && <p id = "errorPrompt">{errors.password}</p>}
                             <button type = "submit"> Sign In</button> 
                         </form>
                         <div class="Remember">
                                 <div style={{display:'inline'}}>
-                                    <input type="checkbox" id="remember"/>
+                                    <input type="checkbox" id="remember"/>&nbsp;&nbsp;
                                     <label for="remember">Remember me</label>
                                 </div>
                                 <a href="#">Need help?</a>
                             </div>
                             <div class="LoginFooter">
                             <div>
-                                <p>New to Netflix?</p>
+                                <p>New to Netflix?</p> &nbsp;
                                 <a style={{color: '#fff', textDecoration: 'none'}} href="#" >Sign up now.</a>
                             </div>
                             <p>
@@ -55,7 +105,6 @@ class Home extends React.Component{
             </div>
         );
        
-    }
 }
 
 export default Home;
